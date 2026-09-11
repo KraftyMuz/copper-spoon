@@ -1,0 +1,73 @@
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: site
+    label: Site settings
+    type: file
+    path: src/content/site.json
+    fields:
+      - name: name
+        label: Business name
+        type: string
+      - name: tagline
+        label: Tagline
+        type: string
+      - name: description
+        label: Meta description
+        type: text
+      - name: phone
+        label: Phone
+        type: string
+      - name: address
+        label: Address
+        type: string
+      - name: hours
+        label: Opening hours
+        type: string
+      - name: heroImage
+        label: Hero image
+        type: image
+
+  - name: testimonials
+    label: Testimonials
+    type: file
+    path: src/content/testimonials.json
+    fields:
+      - name: items
+        label: Reviews
+        type: list
+        fields:
+          - name: quote
+            label: Quote
+            type: text
+          - name: author
+            label: Author
+            type: string
+
+  - name: menu
+    label: Menu
+    type: file
+    path: src/content/menu.json
+    fields:
+      - name: sections
+        label: Menu sections
+        type: list
+        fields:
+          - name: title
+            label: Section title
+            type: string
+          - name: items
+            label: Items
+            type: list
+            fields:
+              - name: name
+                label: Dish name
+                type: string
+              - name: price
+                label: Price
+                type: string
+              - name: note
+                label: Description
+                type: string
