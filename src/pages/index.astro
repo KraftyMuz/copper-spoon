@@ -1,55 +1,240 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import site from "../content/site.json";
-import menu from "../content/menu.json";
-import testimonials from "../content/testimonials.json";
+import Editorial from "../layouts/Editorial.astro";
 
-const firstSections = menu.sections.slice(0, 3);
-const firstTestimonial = testimonials.items[0];
+const menu = [
+  { name: "Wood-roast leeks, hazelnut, Old Winchester", price: "11", note: "Straight off the fire, dressed while hot." },
+  { name: "Maldon crab, brown butter, fennel", price: "14" },
+  { name: "Whole plaice, seaweed butter, capers", price: "26", note: "On the bone. For one, or two if you ask." },
+  { name: "Herdwick lamb, salt-baked beetroot, mint", price: "28" },
+  { name: "Beef shin & marrow pie, suet crust", price: "24" },
+  { name: "Treacle tart, crème fraîche", price: "9" },
+];
+
+const hours = [
+  { day: "Monday", time: "Closed" },
+  { day: "Tuesday – Thursday", time: "12:00 – 15:00 · 17:30 – 22:30" },
+  { day: "Friday – Saturday", time: "12:00 – 23:00" },
+  { day: "Sunday", time: "12:00 – 16:00" },
+];
 ---
 
-<Layout>
-
-  <section class="px-6 py-24 max-w-4xl mx-auto text-center">
-    <h1 class="text-4xl md:text-6xl font-bold tracking-tight">
-      {site.tagline}
-    </h1>
-    <p class="mt-6 text-lg text-stone-600 max-w-xl mx-auto">
-      Seasonal plates, natural wine, and a warm room. Open {site.hours}.
-    </p>
-    <div class="mt-10 flex gap-4 justify-center flex-wrap">
-      <a href="/contact" class="bg-amber-700 text-white px-6 py-3 rounded-full hover:bg-amber-800">
-        Book a table
-      </a>
-      <a href="/menu" class="border border-stone-300 px-6 py-3 rounded-full hover:border-stone-500">
-        See the menu
-      </a>
+<Editorial>
+  <!-- ── Hero ───────────────────────────────────────────── -->
+  <section class="relative isolate min-h-[100svh] overflow-hidden bg-ink">
+    <div class="absolute inset-0 grain" aria-hidden="true">
+      <div class="h-full w-full bg-[radial-gradient(115%_85%_at_72%_22%,#33473A_0%,#171512_48%,#0A0908_100%)]"></div>
     </div>
-  </section>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#070605] via-[#070605]/40 to-[#070605]/70" aria-hidden="true"></div>
 
-  <section class="px-6 py-20 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold mb-10">A taste of the menu</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        {firstSections.map((section) => (
-          <div class="border border-stone-200 p-6 rounded-lg">
-            <h3 class="font-semibold text-lg">{section.title}</h3>
-            <p class="text-sm text-stone-600 mt-2">
-              {section.items[0].name}, {section.items[0].note}.
-            </p>
-          </div>
-        ))}
+    <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-[1500px] flex-col justify-end px-6 pb-12 pt-44 md:px-10 md:pb-16 lg:px-14 lg:pb-20">
+      <div class="grid grid-cols-12 items-end gap-y-12">
+        <div class="col-span-12 lg:col-span-8">
+          <p class="mb-8 text-[0.68rem] uppercase tracking-[0.3em] text-paper/55">
+            Shoreditch, London — since 2019
+          </p>
+          <h1 class="font-display text-[clamp(2.6rem,7.4vw,6.4rem)] font-light leading-[0.94] tracking-[-0.03em] text-paper">
+            Modern British cooking,
+            <span class="block">with the volume turned up.</span>
+          </h1>
+        </div>
+
+        <div class="col-span-12 lg:col-span-3 lg:col-start-10">
+          <p class="max-w-xs text-sm leading-relaxed text-paper/65">
+            Wood-fired plates, a long wine list, and a room built for lunches
+            that run into dinner.
+          </p>
+          <a href="#menu" class="mt-7 inline-flex items-center gap-3 border-b border-paper/30 pb-2 text-[0.65rem] uppercase tracking-[0.24em] text-paper transition-colors hover:border-paper">
+            Tonight's menu <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-14 flex flex-col gap-3 border-t border-paper/15 pt-5 text-[0.65rem] uppercase tracking-[0.22em] text-paper/45 sm:flex-row sm:items-center sm:justify-between">
+        <span>Dinner Tue – Sun, from 17:30</span>
+        <span class="hidden sm:inline">41 Rivington Street, EC2A</span>
+        <span>+44 20 7946 0821</span>
       </div>
     </div>
   </section>
 
-  {firstTestimonial && (
-    <section class="px-6 py-20 max-w-3xl mx-auto text-center">
-      <p class="text-xl md:text-2xl italic text-stone-700">
-        "{firstTestimonial.quote}"
-      </p>
-      <p class="mt-4 text-sm text-stone-500">— {firstTestimonial.author}</p>
-    </section>
-  )}
+  <!-- ── 01 / The kitchen ───────────────────────────────── -->
+  <section id="kitchen" class="px-6 py-24 md:px-10 md:py-32 lg:px-14 lg:py-40">
+    <div class="mx-auto grid max-w-[1500px] grid-cols-12 gap-x-8 gap-y-12">
+      <div class="col-span-12 md:col-span-3">
+        <div class="border-t border-ink/15 pt-4">
+          <p class="text-[0.68rem] uppercase tracking-[0.26em] text-moss">
+            01 — The kitchen
+          </p>
+        </div>
+      </div>
 
-</Layout>
+      <div class="col-span-12 md:col-span-9">
+        <p class="font-display text-[clamp(1.7rem,3.6vw,3.2rem)] font-light leading-[1.14] tracking-[-0.02em] text-pretty">
+          A short menu, rewritten every few weeks, built around whole
+          animals, day-boat fish and whatever the growers leave at the back
+          door.
+        </p>
+
+        <div class="mt-14 grid grid-cols-12 gap-x-8 gap-y-8">
+          <p class="col-span-12 text-[0.95rem] leading-[1.8] text-ink/65 md:col-span-5">
+            Nora Whitfield cooks over a wood grill and an open fire —
+            charred, salted, dressed at the last moment. Nothing sits under
+            a lamp long enough to forget where it came from.
+          </p>
+          <p class="col-span-12 text-[0.95rem] leading-[1.8] text-ink/65 md:col-span-4 md:col-start-8">
+            The cellar runs to three hundred bottles, mostly
+            low-intervention, mostly European, and always with something
+            open by the glass we're excited about.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 02 / The menu ──────────────────────────────────── -->
+  <section id="menu" class="px-6 pb-24 md:px-10 md:pb-32 lg:px-14 lg:pb-40">
+    <div class="mx-auto grid max-w-[1500px] grid-cols-12 gap-x-8 gap-y-16">
+      <div class="col-span-12 lg:col-span-6">
+        <div class="border-t border-ink/15 pt-4">
+          <p class="text-[0.68rem] uppercase tracking-[0.26em] text-moss">
+            02 — The menu
+          </p>
+        </div>
+
+        <h2 class="mt-10 font-display text-[clamp(2.4rem,5vw,4.4rem)] font-light leading-[0.96] tracking-[-0.03em]">
+          Dinner,<br />tonight
+        </h2>
+
+        <ul class="mt-12">
+          {menu.map((dish) => (
+            <li class="border-b border-ink/12 py-5 first:border-t first:border-ink/12">
+              <div class="flex items-baseline justify-between gap-6">
+                <h3 class="font-display text-[1.12rem] leading-snug tracking-[-0.01em] md:text-[1.3rem]">
+                  {dish.name}
+                </h3>
+                <span class="shrink-0 text-[0.8rem] tabular-nums text-ink/55">
+                  {dish.price}
+                </span>
+              </div>
+              {dish.note && (
+                <p class="mt-1.5 text-[0.8rem] leading-relaxed text-ink/45">
+                  {dish.note}
+                </p>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        <p class="mt-6 text-[0.75rem] leading-relaxed text-ink/45">
+          All prices in pounds. Three or four plates each is about right.
+        </p>
+      </div>
+
+      <div class="col-span-12 lg:col-span-5 lg:col-start-8 lg:mt-20">
+        <div class="relative aspect-[4/5] w-full overflow-hidden grain">
+          <div class="absolute inset-0 bg-[radial-gradient(120%_100%_at_32%_18%,#3B4A3E_0%,#1B1A17_55%,#0D0C0B_100%)]"></div>
+        </div>
+        <p class="mt-5 max-w-[22rem] text-[0.8rem] leading-relaxed text-ink/50">
+          Whole plaice, seaweed butter, capers — landed at Billingsgate that
+          morning, on the fire by six.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pull quote ─────────────────────────────────────── -->
+  <section class="relative isolate overflow-hidden bg-ink px-6 py-24 text-paper md:px-10 md:py-32 lg:px-14 lg:py-40 grain">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(85%_70%_at_12%_18%,#24382D_0%,#0F0E0C_62%)] opacity-80" aria-hidden="true"></div>
+
+    <div class="mx-auto grid max-w-[1500px] grid-cols-12 items-end gap-x-8 gap-y-14">
+      <blockquote class="col-span-12 lg:col-span-7">
+        <p class="font-display text-[clamp(1.8rem,4.2vw,3.6rem)] font-light italic leading-[1.1] tracking-[-0.02em] text-pretty">
+          "The whole point is that you leave fuller and happier than you
+          arrived."
+        </p>
+        <footer class="mt-9 text-[0.65rem] uppercase tracking-[0.26em] text-paper/50">
+          Nora Whitfield — Chef-patron
+        </footer>
+      </blockquote>
+
+      <div class="col-span-12 lg:col-span-3 lg:col-start-10">
+        <div class="relative aspect-[3/4] w-full overflow-hidden">
+          <div class="absolute inset-0 bg-[radial-gradient(110%_100%_at_60%_20%,#2E4034_0%,#141311_58%,#0A0908_100%)]"></div>
+        </div>
+        <p class="mt-4 text-[0.65rem] uppercase tracking-[0.22em] text-paper/40">
+          The counter — six seats, over the fire
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 / Private dining ────────────────────────────── -->
+  <section id="private" class="bg-moss px-6 py-14 text-paper md:px-10 lg:px-14">
+    <div class="mx-auto grid max-w-[1500px] grid-cols-12 items-center gap-x-8 gap-y-5">
+      <p class="col-span-12 text-[0.65rem] uppercase tracking-[0.26em] text-paper/55 md:col-span-3">
+        03 — Private dining
+      </p>
+      <p class="col-span-12 text-[0.95rem] leading-relaxed text-paper/85 md:col-span-5">
+        The mezzanine seats twenty-two, with its own bar and a shorter menu.
+        Suited to long birthdays and longer lunches.
+      </p>
+      <a href="#" class="col-span-12 inline-flex items-center gap-3 border-b border-paper/35 pb-2 text-[0.65rem] uppercase tracking-[0.24em] transition-colors hover:border-paper md:col-span-3 md:col-start-10 md:justify-self-end">
+        Enquire <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── 04 / Visit ─────────────────────────────────────── -->
+  <section id="visit" class="px-6 py-24 md:px-10 md:py-32 lg:px-14 lg:py-40">
+    <div class="mx-auto grid max-w-[1500px] grid-cols-12 gap-x-8 gap-y-16">
+      <div class="col-span-12 lg:col-span-5">
+        <div class="border-t border-ink/15 pt-4">
+          <p class="text-[0.68rem] uppercase tracking-[0.26em] text-moss">
+            04 — Visit
+          </p>
+        </div>
+
+        <h2 class="mt-10 font-display text-[clamp(2.4rem,5vw,4.4rem)] font-light leading-[0.96] tracking-[-0.03em]">
+          Come<br />and eat.
+        </h2>
+
+        <address class="mt-10 not-italic">
+          <p class="text-[0.95rem] leading-[2] text-ink/75">
+            41 Rivington Street<br />
+            Shoreditch, London EC2A 3AY
+          </p>
+        </address>
+
+        <p class="mt-6 text-[0.95rem] leading-[2] text-ink/75">
+          <a href="tel:+442079460821" class="underline decoration-ink/20 underline-offset-4 transition-colors hover:decoration-ink">+44 20 7946 0821</a><br />
+          <a href="mailto:hello@thecopperspoon.co.uk" class="underline decoration-ink/20 underline-offset-4 transition-colors hover:decoration-ink">hello@thecopperspoon.co.uk</a>
+        </p>
+      </div>
+
+      <div id="book" class="col-span-12 lg:col-span-6 lg:col-start-7">
+        <dl class="border-t border-ink/15">
+          {hours.map((row) => (
+            <div class="flex items-baseline justify-between gap-6 border-b border-ink/12 py-4">
+              <dt class="text-[0.68rem] uppercase tracking-[0.22em] text-ink/50">
+                {row.day}
+              </dt>
+              <dd class="text-right text-[0.85rem] tabular-nums text-ink/80">
+                {row.time}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-5">
+          <a href="#" class="inline-flex items-center gap-3 bg-ink px-8 py-4 text-[0.65rem] uppercase tracking-[0.26em] text-paper transition-colors hover:bg-moss">
+            Reserve a table <span aria-hidden="true">→</span>
+          </a>
+          <p class="text-[0.8rem] leading-relaxed text-ink/50">
+            Walk-ins welcome at the counter<br class="hidden sm:block" />
+            from 17:30, every night we're open.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Editorial>
