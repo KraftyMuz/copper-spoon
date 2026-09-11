@@ -1,17 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import site from "../content/site.json";
 ---
 
 <Layout
-  title="About — The Copper Spoon"
-  description="The story behind The Copper Spoon, a modern British bistro in Manchester."
+  title={`About — ${site.name}`}
+  description={`The story behind ${site.name}.`}
 >
 
   <section class="px-6 py-16 max-w-3xl mx-auto">
     <h1 class="text-4xl md:text-5xl font-bold mb-8">About us</h1>
 
     <p class="text-lg text-stone-700 mb-6">
-      The Copper Spoon opened in 2018 in a small corner of Manchester's Northern
+      {site.name} opened in 2018 in a small corner of Manchester's Northern
       Quarter. We serve seasonal British plates, natural wine, and a rotating
       menu that changes with whatever the growers bring us that week.
     </p>
@@ -23,10 +24,7 @@ import Layout from "../layouts/Layout.astro";
     </p>
 
     <h2 class="text-2xl font-bold mt-14 mb-4">Find us</h2>
-    <p class="text-stone-700">
-      42 Tib Street<br />
-      Manchester M4 1LG
-    </p>
+    <p class="text-stone-700 whitespace-pre-line">{site.address}</p>
   </section>
 
 </Layout>
