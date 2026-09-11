@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Contact — The Copper Spoon"
+  description="Book a table or get in touch with The Copper Spoon, Manchester."
+>
+
+  <section class="px-6 py-16 max-w-2xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-bold mb-8">Book a table</h1>
+
+    <p class="text-stone-600 mb-10">
+      Call us on
+      <a href="tel:01611234567" class="text-amber-700 underline">0161 123 4567</a>,
+      or send us a message below. We'll get back to you the same day.
+    </p>
+
+    <form class="space-y-5">
+      <div>
+        <label class="block text-sm font-medium mb-2">Your name</label>
+        <input
+          type="text"
+          class="w-full border border-stone-300 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-700"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-2">Email</label>
+        <input
+          type="email"
+          class="w-full border border-stone-300 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-700"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-2">Message</label>
+        <textarea
+          rows="5"
+          class="w-full border border-stone-300 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-700"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="bg-amber-700 text-white px-6 py-3 rounded-full hover:bg-amber-800"
+      >
+        Send message
+      </button>
+    </form>
+
+    <div class="mt-14 text-sm text-stone-600 space-y-1">
+      <p><strong>Address:</strong> 42 Tib Street, Manchester M4 1LG</p>
+      <p><strong>Hours:</strong> Tue–Sun, 12pm–10pm</p>
+      <p><strong>Phone:</strong> 0161 123 4567</p>
+    </div>
+  </section>
+
+</Layout>
