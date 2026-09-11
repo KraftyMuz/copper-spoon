@@ -1,36 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const menu = [
-  {
-    section: "Small plates",
-    items: [
-      { name: "Whipped cod's roe", price: "£8", note: "pickled fennel, sourdough" },
-      { name: "Cured trout", price: "£9", note: "horseradish cream, dill" },
-      { name: "Salt-baked beetroot", price: "£7", note: "hazelnut, goat curd" },
-    ],
-  },
-  {
-    section: "Mains",
-    items: [
-      { name: "Dry-aged beef", price: "£24", note: "bone marrow butter, triple-cooked chips" },
-      { name: "Roast cod", price: "£21", note: "brown shrimp, sea herbs" },
-      { name: "Wild mushroom risotto", price: "£18", note: "aged parmesan, truffle oil" },
-    ],
-  },
-  {
-    section: "Puddings",
-    items: [
-      { name: "Burnt honey custard tart", price: "£8", note: "poached rhubarb" },
-      { name: "Dark chocolate delice", price: "£9", note: "salted caramel, crème fraîche" },
-      { name: "Selection of British cheeses", price: "£11", note: "oat biscuits, quince" },
-    ],
-  },
-];
+import menu from "../content/menu.json";
 ---
 
 <Layout
-  title="Menu — The Copper Spoon"
+  title={`Menu — ${menu ? "The Copper Spoon" : ""}`}
   description="Seasonal British plates at The Copper Spoon, Manchester."
 >
 
@@ -40,9 +14,9 @@ const menu = [
       Our menu changes with the seasons. Here's a taste of what's on right now.
     </p>
 
-    {menu.map((group) => (
+    {menu.sections.map((group) => (
       <div class="mb-14">
-        <h2 class="text-2xl font-bold mb-6">{group.section}</h2>
+        <h2 class="text-2xl font-bold mb-6">{group.title}</h2>
         <ul class="space-y-4">
           {group.items.map((item) => (
             <li class="flex justify-between gap-6 border-b border-stone-200 pb-4">
