@@ -1,0 +1,28 @@
+{
+  "sections": [
+    {
+      "title": "Small plates",
+      "items": [
+        { "name": "Whipped cod's roe", "price": "£8", "note": "pickled fennel, sourdough" },
+        { "name": "Cured trout", "price": "£9", "note": "horseradish cream, dill" },
+        { "name": "Salt-baked beetroot", "price": "£7", "note": "hazelnut, goat curd" }
+      ]
+    },
+    {
+      "title": "Mains",
+      "items": [
+        { "name": "Dry-aged beef", "price": "£24", "note": "bone marrow butter, triple-cooked chips" },
+        { "name": "Roast cod", "price": "£21", "note": "brown shrimp, sea herbs" },
+        { "name": "Wild mushroom risotto", "price": "£18", "note": "aged parmesan, truffle oil" }
+      ]
+    },
+    {
+      "title": "Puddings",
+      "items": [
+        { "name": "Burnt honey custard tart", "price": "£8", "note": "poached rhubarb" },
+        { "name": "Dark chocolate delice", "price": "£9", "note": "salted caramel, crème fraîche" },
+        { "name": "Selection of British cheeses", "price": "£11", "note": "oat biscuits, quince" }
+      ]
+    }
+  ]
+}
