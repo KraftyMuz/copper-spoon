@@ -1,12 +1,7 @@
 ---
-const { title = "The Copper Spoon", description = "Modern British bistro in Manchester." } = Astro.props;
+import site from "../content/site.json";
 
-const restaurant = {
-  name: "The Copper Spoon",
-  phone: "0161 123 4567",
-  address: "42 Tib Street, Manchester M4 1LG",
-  hours: "Tue–Sun, 12pm–10pm",
-};
+const { title = site.name, description = site.description } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,7 +15,7 @@ const restaurant = {
   <body class="bg-stone-50 text-stone-900 font-sans">
 
     <nav class="flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
-      <a href="/" class="font-bold text-xl">{restaurant.name}</a>
+      <a href="/" class="font-bold text-xl">{site.name}</a>
 
       <div class="hidden md:flex gap-8 text-sm">
         <a href="/" class="hover:text-amber-700">Home</a>
@@ -44,16 +39,16 @@ const restaurant = {
     <footer class="px-6 py-12 bg-stone-900 text-stone-300 mt-20">
       <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-sm">
         <div>
-          <p class="font-semibold text-white mb-2">{restaurant.name}</p>
-          <p>{restaurant.address}</p>
+          <p class="font-semibold text-white mb-2">{site.name}</p>
+          <p>{site.address}</p>
         </div>
         <div>
           <p class="font-semibold text-white mb-2">Hours</p>
-          <p>{restaurant.hours}</p>
+          <p>{site.hours}</p>
         </div>
         <div>
           <p class="font-semibold text-white mb-2">Contact</p>
-          <p>{restaurant.phone}</p>
+          <p>{site.phone}</p>
         </div>
       </div>
     </footer>
